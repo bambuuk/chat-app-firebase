@@ -9,7 +9,7 @@ export const Chat = (props) => {
   const [messages, setMessage] = useState([]);
   const [time, setTime] = useState([]);
   const { room } = props;
-  const messagesRef = collection(db, 'messages'); // витягую колекцію message з firestore
+  const messagesRef = collection(db, 'messages'); // get collection orders from firestore
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +34,8 @@ export const Chat = (props) => {
       where("room", "==", room),
       orderBy('createdAt') // need to connect with using method query and add index in firesore 
     );
+
+    console.log(queryMessages)
 
     // listening all changes for queryMessages
     const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
