@@ -1,7 +1,7 @@
 import { auth, provider } from '../firebase-config.js';
 import { signInWithPopup } from 'firebase/auth';
 
-import '../styles/auth.css';
+import '../styles/auth.scss';
 
 export const Auth = (props) => {
   const { setIsAuth } = props;

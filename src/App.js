@@ -12,7 +12,6 @@ function App() {
   const roomInputRef = useRef(null);
 
   const signUserOut = async () => {
-    console.log('+')
     await signOut(auth);
     localStorage.removeItem('auth-token');
     setIsAuth(false);
@@ -21,14 +20,14 @@ function App() {
   
   if (!isAuth) {
     return (
-      <div className="App">
+      <div className="app">
         <Auth setIsAuth={setIsAuth} />
       </div>
     );
   }
 
   return (
-    <>
+    <div className='app'>
       {room ? (
         <Chat room={room} />
       ) : (
@@ -36,7 +35,7 @@ function App() {
           <label htmlFor="room-name">Enter Room Name:</label>
           <br />
           <br />
-          <input id="room-name" type="text" ref={roomInputRef} />
+          <input id="room-name" type="text" ref={roomInputRef} className='room-name'/>
           <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
         </div>
       )
@@ -44,7 +43,7 @@ function App() {
       <div className="sign-out">
         <button onClick={signUserOut}>Sign Out</button>
       </div>
-    </>
+    </div>
   )
 }
 

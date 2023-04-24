@@ -1,14 +1,16 @@
 .auth {
   text-align: center;
+  color: white;
 }
 
 .auth button {
   width: 200px;
   height: 50px;
   border: none;
-  background-color: #3b5998;
   color: white;
   border-radius: 8px;
+  border: 1px solid hsla(0,0%,100%,.7);
+  box-shadow: 0 0 8px 0 hsla(0,0%,100%,.3);
   font-size: 18px;
   cursor: pointer;
 }

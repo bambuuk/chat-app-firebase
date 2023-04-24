@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore";
 import { db, auth } from "../firebase-config";
 
-import '../styles/chat.css';
+import '../styles/chat.scss';
 
 export const Chat = (props) => {
   const [newMessage, setNewMessage] = useState('');
@@ -15,6 +15,7 @@ export const Chat = (props) => {
     e.preventDefault();
     if (newMessage === '') return;
 
+
     /* I add an object with a message to the message collection, serverTimestamp is the 
     time of sending the message, a method from the library */
     await addDoc(messagesRef, {
@@ -22,6 +23,7 @@ export const Chat = (props) => {
       createdAt: serverTimestamp(),
       user: auth.currentUser.displayName,
       room,
+
     });
 
     setNewMessage('');
@@ -34,8 +36,6 @@ export const Chat = (props) => {
       where("room", "==", room),
       orderBy('createdAt') // need to connect with using method query and add index in firesore 
     );
-
-    console.log(queryMessages)
 
     // listening all changes for queryMessages
     const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
@@ -62,19 +62,34 @@ export const Chat = (props) => {
     // eslint-disable-next-line
   }, []);
 
-
   const showMessages = useMemo(() => {
     return messages.map((item, i) => {
-      return (
-        <div className="messaage" key={item.id}>
-          <span className="user">{item.user}</span>
-          {item.text}
-          {time[i].hours ?
-            (<span className="time">{`${time[i].hours}:${time[i].minutes}  -  ${time[i].date}/${time[i].month}/${time[i].year}`}</span>)
-            : null
-          }
-        </div>
-      )
+      if (auth.currentUser.displayName === item.user) {
+        return (
+          <div className="messages__currentUser messages__item" key={item.id}>
+            <span className="messages__user messages__user_currentUser">Me</span>
+            <span className="messages__text">{item.text}</span>
+            {
+              time[i].hours ?
+              (<span className="messages__time messages__time_currentUser">{`${time[i].hours}:${time[i].minutes}  -  ${time[i].date}/${time[i].month}/${time[i].year}`}</span>)
+              : null
+            }
+          </div>
+        )
+      } else {
+        return (
+          <div className="messages__otherUser messages__item" key={item.id}>
+            <span className="messages__user">{item.user}</span>
+            <span className="messages__text">{item.text}</span>
+            {
+              time[i].hours ?
+              (<span className="messages__time">{`${time[i].hours}:${time[i].minutes}  -  ${time[i].date}/${time[i].month}/${time[i].year}`}</span>)
+              : null
+            }
+          </div>
+        )
+      }
+
     })
     // eslint-disable-next-line
   }, [time]);
