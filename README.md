@@ -1,3 +1,8 @@
+## Description
+It's a React SPA for speaking with other people in room (some little messanger). Made with functional components, adapted for all standard mobile device screen sizes. For this project I used Authorization with Google and Firestore Databse with React.
+
+After generate a room, the other persons to enter this room name will be your interlocutors.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
