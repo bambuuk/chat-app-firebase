@@ -3,7 +3,7 @@ import { Auth } from './components/Auth';
 import { Chat } from './components/Chat';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase-config';
-import './App.css';
+import './App.scss';
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("auth-token"));

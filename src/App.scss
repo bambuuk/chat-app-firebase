@@ -114,6 +114,10 @@ body {
   cursor: pointer;
 	border: 1px solid hsla(0,0%,100%,.7);
   box-shadow: 0 0 8px 0 hsla(0,0%,100%,.3);
+	transition: 0.3s all;
+    &:hover {
+      background-color: #3b589888;
+    }
 }
 
 .room input {

@@ -123,8 +123,9 @@ export const Chat = (props) => {
         />
         <button className="send-button" type="submit">Send</button>
       </form>
-      <div className="sign-out">
-        <button onClick={signUserOut}>Sign Out</button>
+      <div className="chat-app__controlBtns">
+        <button className="chat-app__controlBtn">Back to the selecting rooms</button>
+        <button className="chat-app__controlBtn" onClick={signUserOut}>Sign Out</button>
       </div>
     </div>
   )
