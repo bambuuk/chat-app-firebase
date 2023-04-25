@@ -135,3 +135,45 @@ body {
 		border: 2px solid #3b5998;
 	}
 }
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+  
+}
+
+@media (max-width: 575px) {
+	.controlBtn {
+		font-size: 16px;
+	}
+	.room {
+		padding: 20px;
+		color: white;
+		& label {
+			font-size: 30px;
+		}
+		& input {
+			margin: 0 20px 10px 0;
+			padding: 10px 15px;
+			min-width: 200px;
+			// width: 200px;
+			border-radius: 8px;
+			font-size: 18px;
+			border: 2px solid hsla(0,0%,100%,.7);
+			box-shadow: 0 0 8px 0 hsla(0,0%,100%,.3);
+			&:focus {
+				border: 2px solid #0051ff;
+				box-shadow: 0 0 8px 0 #0051ff;
+			}
+		}
+		&__name {
+			border: 2px solid #3b5998;
+		}
+	}
+}

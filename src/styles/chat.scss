@@ -46,6 +46,7 @@
   &__item {
     display: grid;
     grid-template: repeat(2, auto) / 1fr 105px;
+    align-items: start;
     column-gap: 15px;
     border-radius: 22px;
     min-height: 80px;
@@ -110,4 +111,71 @@
     &:hover {
       background-color: #3b589888;
     }
+}
+
+@media (max-width: 1200px) {
+  .messages {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .messages {
+    padding: 20px 40px;
+    &__currentUser {
+      justify-self: self-end;
+      width: auto;
+    }
+    &__otherUser {
+      justify-self: start;
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  
+}
+
+@media (max-width: 575px) {
+  .messages {
+    padding: 20px 10px;
+    &__currentUser {
+      justify-self: self-end;
+      width: 100%;
+    }
+    &__otherUser {
+      justify-self: start;
+      width: 100%;
+    }
+    &__item {
+      grid-template: 1fr / 1fr;
+      row-gap: 5px;
+    }
+    &__user {
+      grid-column: 1/2;
+    }
+  }
+
+  .new-message-form {
+    flex-direction: column;
+  }
+
+  .send-button {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 200px;
+  }
+
+  .chat-app {
+    &__controlBtns {
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .header {
+    font-size: 22px;
+  }
 }
