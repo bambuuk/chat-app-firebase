@@ -40,8 +40,8 @@
   }
   &__item {
     display: grid;
-    grid-template: repeat(2, auto) / 1fr 100px;
-    column-gap: 20px;
+    grid-template: repeat(2, auto) / 1fr 105px;
+    column-gap: 15px;
     border-radius: 22px;
     min-height: 80px;
     overflow: hidden;
@@ -73,12 +73,6 @@
     overflow: hidden;
     white-space: nowrap;
   }
-}
-
-.user {
-  font-weight: bold;
-  margin-right: 10px;
-  color: #333;
 }
 
 .new-message-form {

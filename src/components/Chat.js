@@ -64,6 +64,13 @@ export const Chat = (props) => {
 
   const showMessages = useMemo(() => {
     return messages.map((item, i) => {
+      console.log(time[i].hours.length);
+      let hours = time[i].hours.length > 1 ? time[i].hours : `0${time[i].hours}`;
+      let minutes = time[i].minutes.length > 1 ? time[i].minutes : `0${time[i].minutes}`;
+      let date = time[i].date.length > 1 ? time[i].date : `0${time[i].date}`;
+      let month = time[i].month.length > 1 ? time[i].month : `0${time[i].month}`;
+      let year = time[i].year.length > 1 ? time[i].year : `0${time[i].year}`;
+
       if (auth.currentUser.displayName === item.user) {
         return (
           <div className="messages__currentUser messages__item" key={item.id}>
@@ -71,7 +78,12 @@ export const Chat = (props) => {
             <span className="messages__text">{item.text}</span>
             {
               time[i].hours ?
-              (<span className="messages__time messages__time_currentUser">{`${time[i].hours}:${time[i].minutes}  -  ${time[i].date}/${time[i].month}/${time[i].year}`}</span>)
+              (<span className="messages__time messages__time_currentUser">
+                {
+                  `${hours.length > 2 ? hours.slice(1) : hours}:${minutes.length > 2 ? minutes.slice(1) : minutes}  -  
+                  ${date.length > 2 ? date.slice(1) : date}/${month.length > 2 ? month.slice(1) : month}/${year.length > 2 ? year.slice(1) : year}`
+                }
+              </span>)
               : null
             }
           </div>
