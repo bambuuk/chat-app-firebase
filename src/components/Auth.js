@@ -19,7 +19,7 @@ export const Auth = (props) => {
   return (
     <div className="auth">
       <p>Sign In With Google To Continue</p>
-      <button onClick={signInWithGoogle}>Sign In With Google</button>
+      <button onClick={signInWithGoogle} className="controlBtn">Sign In With Google</button>
     </div>
   )
 }
