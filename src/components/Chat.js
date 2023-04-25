@@ -8,14 +8,12 @@ export const Chat = (props) => {
   const [newMessage, setNewMessage] = useState('');
   const [messages, setMessage] = useState([]);
   const [time, setTime] = useState([]);
-  const { room, signUserOut } = props;
-  // console.log(room, signUserOut)
+  const { room, signUserOut, setRoom } = props;
   const messagesRef = collection(db, 'messages'); // get collection orders from firestore
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (newMessage === '') return;
-
 
     /* I add an object with a message to the message collection, serverTimestamp is the 
     time of sending the message, a method from the library */
@@ -24,7 +22,6 @@ export const Chat = (props) => {
       createdAt: serverTimestamp(),
       user: auth.currentUser.displayName,
       room,
-
     });
 
     setNewMessage('');
@@ -124,7 +121,7 @@ export const Chat = (props) => {
         <button className="send-button" type="submit">Send</button>
       </form>
       <div className="chat-app__controlBtns">
-        <button className="chat-app__controlBtn">Back to the selecting rooms</button>
+        <button className="chat-app__controlBtn" onClick={() => setRoom(null)}>Back to the selecting rooms</button>
         <button className="chat-app__controlBtn" onClick={signUserOut}>Sign Out</button>
       </div>
     </div>

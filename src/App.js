@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='app'>
       {room ? (
-          <Chat room={room} signUserOut={signUserOut} />
+          <Chat room={room} signUserOut={signUserOut} setRoom={setRoom} />
         ) : (
           <div className="room">
             <label htmlFor="room-name">Enter Room Name:</label>
