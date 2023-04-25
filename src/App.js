@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='app'>
       {room ? (
-          <Chat room={room} />
+          <Chat room={room} signUserOut={signUserOut} />
         ) : (
           <div className="room">
             <label htmlFor="room-name">Enter Room Name:</label>
@@ -40,9 +40,6 @@ function App() {
           </div>
         )
       }
-      <div className="sign-out">
-        <button onClick={signUserOut}>Sign Out</button>
-      </div>
     </div>
   )
 }

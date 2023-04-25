@@ -8,7 +8,8 @@ export const Chat = (props) => {
   const [newMessage, setNewMessage] = useState('');
   const [messages, setMessage] = useState([]);
   const [time, setTime] = useState([]);
-  const { room } = props;
+  const { room, signUserOut } = props;
+  // console.log(room, signUserOut)
   const messagesRef = collection(db, 'messages'); // get collection orders from firestore
 
   const handleSubmit = async (e) => {
@@ -64,7 +65,6 @@ export const Chat = (props) => {
 
   const showMessages = useMemo(() => {
     return messages.map((item, i) => {
-      console.log(time[i].hours.length);
       let hours = time[i].hours.length > 1 ? time[i].hours : `0${time[i].hours}`;
       let minutes = time[i].minutes.length > 1 ? time[i].minutes : `0${time[i].minutes}`;
       let date = time[i].date.length > 1 ? time[i].date : `0${time[i].date}`;
@@ -123,6 +123,9 @@ export const Chat = (props) => {
         />
         <button className="send-button" type="submit">Send</button>
       </form>
+      <div className="sign-out">
+        <button onClick={signUserOut}>Sign Out</button>
+      </div>
     </div>
   )
 }
