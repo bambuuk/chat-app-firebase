@@ -87,14 +87,16 @@
   outline: none;
   background: transparent;
   font-size: 16px;
-  color: #333;
+  color: #8b8b8b;
   padding: 10px;
   border-radius: 5px 0 0 5px;
 }
 
 .send-button {
-  border: none;
-  outline: none;
+  padding: 5px 15px;
+  border: 1px solid hsla(0,0%,100%,.7);
+  box-shadow: 0 0 8px 0 hsla(0,0%,100%,.3);
+  border-radius: 8px;
   background: #3b5998;
   color: #fff;
   font-size: 16px;

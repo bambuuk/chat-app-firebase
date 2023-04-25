@@ -17,7 +17,7 @@ function App() {
     setIsAuth(false);
     setRoom(null);
   }
-  
+
   if (!isAuth) {
     return (
       <div className="app">
@@ -29,16 +29,16 @@ function App() {
   return (
     <div className='app'>
       {room ? (
-        <Chat room={room} />
-      ) : (
-        <div className="room">
-          <label htmlFor="room-name">Enter Room Name:</label>
-          <br />
-          <br />
-          <input id="room-name" type="text" ref={roomInputRef} className='room-name'/>
-          <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
-        </div>
-      )
+          <Chat room={room} />
+        ) : (
+          <div className="room">
+            <label htmlFor="room-name">Enter Room Name:</label>
+            <br />
+            <br />
+            <input id="room-name" type="text" ref={roomInputRef} className='room-name' />
+            <button onClick={() => setRoom(roomInputRef.current.value)}>Enter Chat</button>
+          </div>
+        )
       }
       <div className="sign-out">
         <button onClick={signUserOut}>Sign Out</button>
