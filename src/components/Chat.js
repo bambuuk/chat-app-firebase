@@ -36,27 +36,29 @@ export const Chat = (props) => {
     );
 
     // listening all changes for queryMessages
-    const unsuscribe = onSnapshot(queryMessages, (snapshot) => {
+    const unsubscribe = onSnapshot(queryMessages, (snapshot) => {
       let newMessages = [];
       snapshot.forEach((doc) => {
         newMessages.push({ ...doc.data(), id: doc.id });
       });
       setMessage(newMessages);
 
-      if (newMessages[newMessages.length - 1].createdAt) {
-        setTime(newMessages.map(item => {
-          return {
-            minutes: new Date(item.createdAt.seconds * 1000).getMinutes(),
-            hours: new Date(item.createdAt.seconds * 1000).getHours(),
-            date: new Date(item.createdAt.seconds * 1000).getDate(),
-            month: new Date(item.createdAt.seconds * 1000).getMonth(),
-            year: new Date(item.createdAt.seconds * 1000).getFullYear(),
-          };
-        }));
+      if (newMessages[newMessages.length - 1]) {
+        if (newMessages[newMessages.length - 1].createdAt) {
+          setTime(newMessages.map(item => {
+            return {
+              minutes: new Date(item.createdAt.seconds * 1000).getMinutes(),
+              hours: new Date(item.createdAt.seconds * 1000).getHours(),
+              date: new Date(item.createdAt.seconds * 1000).getDate(),
+              month: new Date(item.createdAt.seconds * 1000).getMonth(),
+              year: new Date(item.createdAt.seconds * 1000).getFullYear(),
+            };
+          }));
+        }
       }
     });
 
-    return () => unsuscribe();
+    return () => unsubscribe();
     // eslint-disable-next-line
   }, []);
 
