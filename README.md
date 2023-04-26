@@ -3,6 +3,8 @@ It's a React SPA for speaking with other people in room (some little messanger).
 
 After generate a room, the other persons to enter this room name will be your interlocutors.
 
+![image](https://user-images.githubusercontent.com/85582745/234426495-6c2b32bc-d389-4390-af01-eca28cfbcbf0.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
