@@ -67,7 +67,7 @@ export const Chat = (props) => {
       let hours = time[i].hours.length > 1 ? time[i].hours : `0${time[i].hours}`;
       let minutes = time[i].minutes.length > 1 ? time[i].minutes : `0${time[i].minutes}`;
       let date = time[i].date.length > 1 ? time[i].date : `0${time[i].date}`;
-      let month = time[i].month.length > 1 ? time[i].month : `0${time[i].month}`;
+      let month = time[i].month.length > 1 ? time[i].month : `0${time[i].month + 1}`;
       let year = time[i].year.length > 1 ? time[i].year : `0${time[i].year}`;
 
       if (auth.currentUser.displayName === item.user) {
